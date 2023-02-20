@@ -1,0 +1,79 @@
+﻿@model Register.ViewModels.CreateUserViewModel
+
+<div class="card-body custom-table border rounded shadow bg-dark bg-opacity-25">
+    <form method="post" asp-action="CreatePost">
+
+        <h1 class="text-center text-uppercase" style="color:green">Register New User</h1>
+
+        <h5>Please fill out the following information</h5>
+
+        <div class="row justify-content-around">
+            <div class="col-12">
+                <div class="form-group">
+                    @*<label class="my-2 text-uppercase" asp-for="@Model.Email">Email</label>*@
+                    <input class="form-control w-80 mb-3" asp-for="@Model.Email" placeholder="Enter a valid email address">
+                    <span asp-validation-for="@Model.Email" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <div class="form-group">
+                    @*<label class="my-2 text-uppercase" asp-for="@Model.FirstName">First Name</label>*@
+                    <input class="form-control w-80 mb-3" asp-for="@Model.FirstName" placeholder="First Name">
+                    <span asp-validation-for="@Model.FirstName" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @*<label class="my-2 text-uppercase" asp-for="@Model.LastName">Last name</label>*@
+                    <input class="form-control w-80 mb-3" asp-for="@Model.LastName" placeholder="Last Name">
+                    <span asp-validation-for="@Model.LastName" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="col-12">
+                <div class="form-group">
+                    @*<label class="my-2 text-uppercase" asp-for="@Model.Password">Password</label>*@
+                    <input class="form-control w-80 mb-3" asp-for="@Model.Password" placeholder="Enter your password here">
+                    <span asp-validation-for="@Model.Password" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <div>
+                    <select class="form-select" asp-for="@Model.CountryLabel" asp-items="@Model.Countries"></select>
+                    <span asp-validation-for="@Model.CountryLabel" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+             <div class="col-6">
+                <div>
+                    <select class="form-select" asp-for="@Model.UserTypeLabel" asp-items="@Model.UserTypes"></select>
+                    <span asp-validation-for="@Model.UserTypeLabel" style="color:red" class="field-validation-error"></span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-check">
+            <input class="form-check-input" asp-for="SendMeUpdates">
+            <label class="form-check-label mb-3" asp-for="SendMeUpdates">Send med important updates</label>
+        </div>
+
+        <button type="submit" class="btn btn-success text-uppercase">Register Me</button>
+
+    </form>
+</div>
+
+@*Client side validation*@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
